@@ -1,0 +1,6 @@
+{
+    "require": {
+        "ext-imagick": "*",
+        "ext-exif": "*"
+    }
+}
