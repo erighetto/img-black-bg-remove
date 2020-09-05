@@ -12,9 +12,9 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as
 
         $imagick = new \Imagick();
         $imagick->readImage(realpath($image));
+
         $pixel = $imagick->getImagePixelColor(1, 1);
         $color = $pixel->getColorAsString();
-
         if ($color !== "srgb(0,0,0)") continue;
 
         print $image;
@@ -26,7 +26,8 @@ foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path)) as
 
         $imagick->setFormat('jpeg');
 
-        //$imagick->writeImage($image);
+        $imagick->writeImage($image);
+
     } catch (\ImagickException $e) {
         print $e->getMessage();
         print "\n";
